@@ -1,0 +1,19 @@
+---
+- name: Learning how to map vars
+  hosts: planetexpress
+  gather_facts: yes
+
+  # vars:
+  
+  tasks:
+          - name: install an application
+            apt:
+                    name: sl         # package to target
+                    state: present   # we want the package "installed"
+            become: yes    # elevate to "admin" or "sudo"
+
+          - name: install a second application
+            apt:
+                    name: figlet     # package to target
+                    state: present   # we want the package "installed"
+            become: yes

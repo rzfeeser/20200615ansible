@@ -1,0 +1,17 @@
+---
+- name: Learning how to map vars
+  hosts: planetexpress
+  gather_facts: yes
+
+  vars:
+          zhereorthere: present  # we want the pacakge "installed"
+          zapps: [sl, figlet]  # a list of apps
+  
+  tasks:
+          - name: "modify an application - {{ zhereorthere }}"
+            apt:
+                    name: "{{ zapps }}"
+                    state: "{{ zhereorthere }}"
+            become: yes    # elevate to "admin" or "sudo"
+            when: ansible_distribution == "Ubuntu"
+

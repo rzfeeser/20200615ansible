@@ -1,0 +1,17 @@
+---
+- name: Learning how to map vars
+  hosts: planetexpress
+  gather_facts: yes
+
+  vars:
+          zhereorthere: present  # we want the pacakge "installed"
+  
+  tasks:
+          - name: "modify an application - {{ zhereorthere }}"
+            apt:
+                    name:
+                            - sl
+                            - figlet
+                    state: "{{ zhereorthere }}"
+            become: yes    # elevate to "admin" or "sudo"
+
