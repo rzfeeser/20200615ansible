@@ -1,0 +1,8 @@
+---
+- tasks:
+          - name: Issue a date command on each host
+            command: date
+
+  gather_facts: yes
+  name: A simple playbook testing ansible.cfg
+  hosts: planetexpress

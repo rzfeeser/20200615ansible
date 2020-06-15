@@ -1,0 +1,15 @@
+---
+- name: Copying files from controller to host
+  # hosts: fry
+  hosts: planetexpress:!farnsworth
+
+  tasks:
+          - name: Copy frys resume to target hosts
+            copy:
+                    src: ~/ans/files/fry.txt    # on the controller
+                    dest: ~/fry.txt             # on the remote host(s)
+
+          - name: Create a directory if it does not exist
+            file:
+                    path: ~/ans/go-to-lunch/    # to be created on remote host(s)
+                    state: directory            # file resource to be created
