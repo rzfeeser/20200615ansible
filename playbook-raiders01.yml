@@ -1,6 +1,6 @@
 ---
 - name: bootstrapping day zero
-  hosts: raiders
+  hosts: bender
   gather_facts: no
 
   tasks:

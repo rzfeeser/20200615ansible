@@ -1,0 +1,23 @@
+---
+- name: Send an HTTP POST of vars_prompt info
+  gather_facts: no
+  hosts: localhost
+
+  vars_prompt:
+          - name: enphrase
+            prompt: "Enter an English Phrase"
+            private: no
+
+  tasks:
+          - name: Learn to speak vulcan
+            uri:
+                    url: https://api.funtranslations.com/translate/vulcan.json
+                    method: POST
+                    body_format: form-urlencoded
+                    body:
+                            text: "{{ enphrase }}"
+            register: vulcanresp
+
+          - name: Show the response
+            debug:
+                    var: vulcanresp.json.contents.translated
