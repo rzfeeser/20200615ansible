@@ -1,0 +1,8 @@
+---
+# vars/raiderusers.yml
+# a list of new users to add to the system
+newusers:
+      - marian
+      - belloq
+      - willie
+      - elsa

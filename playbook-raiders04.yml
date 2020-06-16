@@ -1,0 +1,49 @@
+---
+- name: bootstrapping and new user creation
+  hosts: raiders
+  gather_facts: no
+
+  vars:
+          moreusers: "{{ lookup('url', 'http://api.open-notify.org/astros.json') }}"
+
+  vars_files:
+          - vars/raiderusers.yml
+
+  tasks:
+          - name: We never print with ansible but as devs always print with ansible
+            debug:
+                    var: item.name.lower().replace(" ", "")
+            loop: "{{ moreusers.people }}"
+            when: item.name[-1] == "y"
+
+
+          - name: update apt with latest repo info
+            raw: "apt upgrade -y"
+            become: yes
+
+          - name: install py3 and pip3 with ansible raw
+            raw: "apt install -y python3-pip"
+            become: yes
+
+          - name: create new group
+            group:
+                    name: indymovies
+                    state: present
+            become: yes
+
+          - name: Add newusers to target hosts
+            user:
+                    name: "{{ item }}"
+                    state: present
+                    group: indymovies
+            become: yes
+            loop: "{{ newusers }}"
+
+          - name: Add moreusers from ISS to target hosts
+            user:
+                    name: "{{ item.name.lower().replace(' ', '') }}"
+                    state: present
+                    group: indymovies
+            become: yes
+            loop: "{{ moreusers.people }}" 
+            when: item.name[-1] == "y"
