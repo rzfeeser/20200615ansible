@@ -1,0 +1,18 @@
+---
+- name: Extra vars vault
+  hosts: localhost
+  # no_log: true   this controlls logging at a global play level
+
+  # reference the encrypted variable file
+  vars_files:
+    - vars/oscreds.yml
+
+  tasks:
+    - name: print out encrypted vars
+      debug:
+        msg: "{{ imscloud }}"
+      no_log: true    # this task output will not be logged
+
+    - name: print out something silly
+      debug:
+        msg: "We're knights of the round table!"
