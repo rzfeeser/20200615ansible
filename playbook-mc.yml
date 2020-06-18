@@ -1,0 +1,7 @@
+---
+- name: Testing an rzfeeser role
+  hosts: fry
+  gather_facts: yes
+
+  roles:
+          - rzfeeser.ansible_role_minecraft

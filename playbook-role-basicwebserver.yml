@@ -1,0 +1,8 @@
+---
+- name: Invoking Our First Role
+  hosts: fry,bender
+  gather_facts: yes
+  become: yes
+
+  roles:
+          - basic-webserver
