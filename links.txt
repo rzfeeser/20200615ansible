@@ -1,5 +1,7 @@
 https://github.com/dell/ansible-isilon
 
+https://github.com/dell/ansible-isilon/blob/master/dellemc_ansible/docs/Ansible%20for%20Dell%20EMC%20Isilon%20v1.1%20Product%20Guide.pdf
+
 https://docs.ansible.com/ansible/latest/user_guide/intro_patterns.html
 
 https://docs.ansible.com/ansible-tower/
@@ -27,3 +29,13 @@ https://github.com/ansible/ansible/blob/devel/examples/ansible.cfg
 https://docs.ansible.com/ansible/latest/user_guide/playbooks_blocks.html
 
 https://docs.ansible.com/ansible/latest/user_guide/playbooks_error_handling.html
+
+https://blog.purestorage.com/from-zero-to-ansible-for-the-pure-storage-flasharray-in-one-easy-lesson/
+
+https://docs.ansible.com/ansible/latest/modules/na_ontap_info_module.html#na-ontap-info-module
+
+https://github.com/PureStorage-OpenConnect/ansible-playbook-examples
+
+https://blog.purestorage.com/using-ansible-to-manage-your-pure-infrastructure/
+
+https://github.com/rancher/ansible-playbooks/blob/master/roles/rancher/tasks/node.yml
