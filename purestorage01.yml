@@ -1,0 +1,24 @@
+---
+- name: Collecting information about a Pure Storage FlashBlade
+  hosts: localhost    # we know to use this because we need to install
+                      # ansible --version (find the version of python Ansible is using)
+                      # python3 -m pip install purity_fb
+  gather_facts: no    # no need to gather facts about the localhost
+
+  vars:
+          fb_url:     # define this with FlashBlade IP
+          api_token:  # define this with the user access token
+
+  tasks:
+
+        - name: collect default set of info
+          purefb_info:
+            gather_subset:
+                    - all
+            fb_url: "{{ fb_url }}"
+            api_token: "{{ api_token }}"
+          register: blade_info
+
+        - name: show all information
+          debug:
+            msg: "{{ blade_info['purefb_info'] }}"

@@ -1,0 +1,24 @@
+---
+- name: Gather info from NetApp platform
+  hosts: localhost
+  ## this playbook requires installing the following library
+  # ansible --version (collect your version of python used by Ansible)
+  # python3 -m pip install netapp-lib
+
+  vars:
+          username: admin
+          password: qwerty
+          hostname: na-uswest01
+
+  tasks:
+          - name: Get NetApp info (Password Authentication)
+            na_ontap_info:
+              state: info
+              hostname: "{{ hostname }}"
+              username: "{{ username }}"
+              password: "{{ password }}"
+            register: ontap_info
+
+          - name: Display the information gathered from the NetApp platform
+            debug:
+              msg: "{{ ontap_info.ontap_info }}"

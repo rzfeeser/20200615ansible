@@ -1,0 +1,17 @@
+[aristaeast]
+sw1   ansible_host=ans-7819-sw1
+sw2   ansible_host=ans-7819-sw2
+
+[aristaeast:vars]
+ansible_user=admin
+ansible_ssh_pass=alta3
+ansible_network_os=eos
+
+
+[iosxreast]
+sw3  ansible_host=cisco_ios_xr_7819_example
+
+[iosxreast:vars]
+ansible_user=admin
+ansible_ssh_pass=ciscopass123
+ansible_network_os=iosxreast
